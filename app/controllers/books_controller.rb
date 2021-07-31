@@ -5,6 +5,8 @@ class BooksController < ApplicationController
     @books = Book.new
     @user = @book.user
     @like = Like.new
+    # @comments = @book.comments
+    @comment = Comment.new
   end
 
   def index
