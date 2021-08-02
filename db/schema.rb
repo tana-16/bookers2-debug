@@ -16,8 +16,10 @@ ActiveRecord::Schema.define(version: 2021_07_31_092815) do
     t.string "title"
     t.text "body"
     t.integer "user_id"
+    t.text "book_content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
