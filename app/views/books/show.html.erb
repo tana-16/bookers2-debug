@@ -23,22 +23,15 @@
           <% if @user.id == current_user.id %>
             <td><%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
           <% end %>
+
+
           <td>
             <div class='row'>
-              <% if current_user.already_liked?(@book) %>
-              <%= link_to book_likes_path(@book), method: :delete do %>
-                <div class="text-danger">
-                  <i class="fas fa-heart"></i>
-                 </div>
-              <% end %>
-            <% else %>
-              <%= link_to  book_likes_path(@book), method: :book do %>
-                  <i class="fas fa-heart"></i>
-              <% end %>
-            <% end %>
-            <%= @book.likes.count %>
+              <%= render partial: 'likes/like', locals: { book: @book} %>
             </div>
           </td>
+
+
           <td>
             <div class='row'>
               <div>コメント数:</div>
