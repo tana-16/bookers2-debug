@@ -7,7 +7,8 @@ class LikesController < ApplicationController
 
   def destroy
     @like = Like.find_by(book_id: params[:book_id], user_id: current_user.id)
-    @like.destroy
+    # @like.destroy
     #redirect_back(fallback_location: root_path)
   end
+
 end
