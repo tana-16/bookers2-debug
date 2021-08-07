@@ -1,8 +1,6 @@
 <% if current_user.already_liked?(book) %>
   <%= link_to book_likes_path(book), method: :delete, remote: true do %>
-    <div class="text-danger">
-      <i class="fas fa-heart"></i>
-    </div>
+    <i class="fas fa-heart text-danger"></i>
   <% end %>
 <% else %>
   <%= link_to  book_likes_path(book), method: :post, remote: true do %>

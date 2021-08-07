@@ -4,18 +4,20 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.book_id = @book.id
-    if @comment.save
-      redirect_back(fallback_location: root_path)
-    else
-      redirect_back(fallback_location: root_path)
-    end
+    # if @comment.save
+    #   redirect_back(fallback_location: root_path)
+    # else
+    #   redirect_back(fallback_location: root_path)
+    # end
+    @comment.save
   end
 
   def destroy
+    @book = Book.find(params[:book_id])
     # @comment = Comment.find_by(book_id: params[:book_id], user_id: current_user.id)
     @comment = Comment.find_by(id: params[:id])
     @comment.destroy
-    redirect_back(fallback_location: root_path)
+    # redirect_back(fallback_location: root_path)
   end
 
   private
